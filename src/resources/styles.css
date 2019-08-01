@@ -2,6 +2,7 @@ GridPane {
   -fx-padding: 10px;
   -fx-hgap: 5px;
   -fx-vgap: 5px;
+  -fx-background-color: white;
 }
 
 TerrainView {
@@ -10,4 +11,19 @@ TerrainView {
   -fx-pref-width: 600px;
   -fx-min-height: 600px;
   -fx-pref-height: 600px;
+}
+
+Slider {
+  -fx-background-color: #00fff7;
+  -fx-show-tick-labels: true;
+}
+
+Button {
+  -fx-background-color: #00fff7;
+  -fx-border-color: black;
+}
+
+ToggleButton {
+  -fx-background-color: #00fff7;
+  -fx-border-color: black;
 }

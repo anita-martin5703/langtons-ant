@@ -44,7 +44,7 @@
             GridPane.rowIndex="1"
             GridPane.columnIndex="0"
             GridPane.halignment="CENTER"
-            GridPane.valignment="CENTER"
+            GridPane.valignment="TOP"
             value="1"/>
 
     <ToggleButton
@@ -55,6 +55,31 @@
         GridPane.valignment="CENTER"
         text="%start_text"
         onAction="#toggleRun"/>
+
+    <Slider
+        fx:id="speedSlider"
+        GridPane.rowIndex="2"
+        GridPane.columnIndex="1"
+        GridPane.halignment="CENTER"
+        GridPane.valignment="CENTER"
+        min="1"
+        max="10"
+        majorTickUnit="1"
+        minorTickCount="0"
+        snapToTicks="true"
+        showTickMarks="true"
+        showTickLabels="false"
+        blockIncrement="1"
+        value="1"/>
+
+    <Button
+            fx:id="resetButton"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="1"
+            GridPane.halignment="CENTER"
+            GridPane.valignment="CENTER"
+            text="%reset_text"
+            onAction="#reset"/>
 
 
 </GridPane>

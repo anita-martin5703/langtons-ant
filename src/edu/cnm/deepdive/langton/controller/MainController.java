@@ -6,6 +6,8 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
 
@@ -13,19 +15,19 @@ import java.util.Random;
 
 public class MainController {
 
-    @FXML
-    private TerrainView terrainView;
-    @FXML
-    private ToggleButton runToggle;
-    @FXML
-    private Slider populationSize;
+    @FXML private Slider populationSize;
+    @FXML private Button resetButton;
+    @FXML private Slider speedSlider;
+    @FXML private TerrainView terrainView;
+    @FXML private ToggleButton runToggle;
+
     private boolean running;
     private Terrain terrain;
     private AnimationTimer timer;
 
     @FXML
     private void initialize() {
-        terrain = new Terrain(4, new Random());
+        terrain = new Terrain(1, new Random());
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -53,6 +55,13 @@ public class MainController {
         runToggle.setDisable(true);
         running = false;
         timer.stop();
+    }
+
+    public void reset() {
+        // TODO Reset
+    }
+    public void speed() {
+        // TODO speed up the slider
     }
 
     private class Runner extends Thread {
