@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Main extends Application {
@@ -32,7 +33,7 @@ public class Main extends Application {
         controller = fxmlLoader.getController();
         Scene scene = new Scene(root);
         stage.setTitle(bundle.getString(WINDOW_TITLE_KEY));
-        stage.getIcons().add(new Image(classLoader.getResourceAsStream(ICON_RESOURCE)));
+        stage.getIcons().add(new Image(Objects.requireNonNull(classLoader.getResourceAsStream(ICON_RESOURCE))));
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
