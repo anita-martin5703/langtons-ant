@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ public class Main extends Application {
     private static final String RESOURCE_BUNDLE_BASE_NAME = RESOURCES_DIR + "/strings";
     private static final String WINDOW_TITLE_KEY = "window_title";
     private MainController controller;
+    private static final String ICON_RESOURCE = RESOURCES_DIR + "/ant.png";
 
     public static void main(String[] args) {
         launch(args);
@@ -30,7 +32,7 @@ public class Main extends Application {
         controller = fxmlLoader.getController();
         Scene scene = new Scene(root);
         stage.setTitle(bundle.getString(WINDOW_TITLE_KEY));
-        // TODO Set other elements of the scene from our resources.
+        stage.getIcons().add(new Image(classLoader.getResourceAsStream(ICON_RESOURCE)));
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
