@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?import edu.cnm.deepdive.langton.view.TerrainView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
 <GridPane
         xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
@@ -15,20 +14,24 @@
 
     <columnConstraints>
         <ColumnConstraints
-            percentWidth="33.3"/>
+                percentWidth="33.3"/>
         <ColumnConstraints
-            percentWidth="33.4"/>
+                percentWidth="33.4"/>
     </columnConstraints>
 
-    <TerrainView
-        fx:id="terrainView"
-        GridPane.rowIndex="0"
-        GridPane.columnIndex="0"
-        GridPane.columnSpan="3"
-        GridPane.valignment="CENTER"
-        GridPane.halignment="CENTER"
-        width="600"
-        height="600"/>
+    <Pane
+            id="frame"
+            GridPane.rowIndex="0"
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="3"
+            GridPane.valignment="CENTER"
+            GridPane.halignment="CENTER"
+    >
+        <TerrainView
+                fx:id="terrainView"
+                width="600"
+                height="600"/>
+    </Pane>
 
 
     <Slider
@@ -46,42 +49,60 @@
             GridPane.halignment="CENTER"
             GridPane.valignment="TOP"
             value="1"/>
+    <Label
+            id="populationSizeLabel"
+            labelFor="$populationSize"
+            mnemonicParsing="true"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="0"
+            GridPane.halignment="CENTER"
+            GridPane.valignment="CENTER"
+            text="%population_label"/>
+
 
     <ToggleButton
-        fx:id="runToggle"
-        GridPane.rowIndex="1"
-        GridPane.columnIndex="1"
-        GridPane.halignment="CENTER"
-        GridPane.valignment="CENTER"
-        text="%start_text"
-        onAction="#toggleRun"/>
+            fx:id="runToggle"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="1"
+            GridPane.halignment="CENTER"
+            GridPane.valignment="CENTER"
+            text="%start_text"
+            onAction="#toggleRun"
+            styleClass="button"/>
 
     <Slider
-        fx:id="speedSlider"
-        GridPane.rowIndex="2"
-        GridPane.columnIndex="1"
-        GridPane.halignment="CENTER"
-        GridPane.valignment="CENTER"
-        min="1"
-        max="10"
-        majorTickUnit="1"
-        minorTickCount="0"
-        snapToTicks="true"
-        showTickMarks="true"
-        showTickLabels="false"
-        blockIncrement="1"
-        value="1"/>
+            fx:id="speedSlider"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="1"
+            GridPane.halignment="CENTER"
+            GridPane.valignment="CENTER"
+            min="-30"
+            max="-1"
+            majorTickUnit="1"
+            minorTickCount="0"
+            snapToTicks="true"
+            blockIncrement="1"
+            value="1"/>
+
+    <Label
+            id="speedSliderLabel"
+            labelFor="$speedSlider"
+            mnemonicParsing="true"
+            GridPane.rowIndex="3"
+            GridPane.columnIndex="1"
+            GridPane.halignment="CENTER"
+            GridPane.valignment="CENTER"
+            text="%speed_level"/>
 
     <Button
             fx:id="resetButton"
-            
-            GridPane.columnIndex="2"
             GridPane.rowIndex="1"
+            GridPane.columnIndex="2"
             GridPane.halignment="CENTER"
             GridPane.valignment="CENTER"
             text="%reset_text"
-            onAction="#reset"/>
-
+            onAction="#reset"
+            styleClass="button"/>
 
 </GridPane>
 

@@ -14,16 +14,11 @@ import java.util.Random;
 
 public class MainController {
 
-    @FXML
-    private Slider populationSize;
-    @FXML
-    private Button resetButton;
-    @FXML
-    private Slider speedSlider;
-    @FXML
-    private TerrainView terrainView;
-    @FXML
-    private ToggleButton runToggle;
+    @FXML   private Slider populationSize;
+    @FXML   private Button resetButton;
+    @FXML   private Slider speedSlider;
+    @FXML   private TerrainView terrainView;
+    @FXML   private ToggleButton runToggle;
 
     private boolean running;
     private Terrain terrain;
@@ -51,6 +46,7 @@ public class MainController {
 
     private void start() {
         running = true;
+        resetButton.setDisable(false);
         timer.start();
         new Runner().start();
     }
@@ -61,17 +57,11 @@ public class MainController {
         timer.stop();
     }
 
+    @FXML
     public void reset() {
-        if (running = false) {
-            terrain = new Terrain(1, new Random());
-            populationSize.getValue();
-        } else {
-            running = true;
-        }
-    }
-
-    public void speed() {
-        // TODO speed up the slider
+        int newPopulation = (int) populationSize.getValue();
+        terrain = new Terrain(newPopulation, new Random());
+        terrainView.draw(terrain.getPatches());
     }
 
     private class Runner extends Thread {
@@ -79,6 +69,7 @@ public class MainController {
         @Override
         public void run() {
             while (running) {
+                int speedSelection = (int) speedSlider.getValue() * -1;
                 for (int i = 0; i < 10; i++) {
                     terrain.tick();
                 }
@@ -88,7 +79,8 @@ public class MainController {
                     // DO NOTHING! GET ON WITH YOUR LIFE!
                 }
             }
-            Platform.runLater(() -> runToggle.setDisable(false));
+            runToggle.setDisable(false);
+            resetButton.setDisable(false);
         }
     }
 }

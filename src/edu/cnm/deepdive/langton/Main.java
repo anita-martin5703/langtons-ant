@@ -36,6 +36,7 @@ public class Main extends Application {
         stage.getIcons().add(new Image(Objects.requireNonNull(classLoader.getResourceAsStream(ICON_RESOURCE))));
         stage.setResizable(false);
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
